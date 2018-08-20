@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- Bootstrap Core CSS -->
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="css/jquery-ui.min.css">
+        <!-- Custom CSS -->
+        <link href="css/style.css" rel="stylesheet">
+        <title>Register</title>
+    </head>
+
+    <body>
+        <div id="mainWrapper">
+          <div class="container">
+            <div class="row title">
+                <div class="container"><h3 class="text-center">Register Page</h3></div>
+            </div>
+            <div class="row">
+                <div class="col-md-3"></div>
+                <div class="col-md-6">
+                  <form id='register-form'>
+                      <div class="form-group">
+                        <label for="inputUser">Username</label>
+                        <input type="text" name='username' class="form-control" id="inputUser" placeholder="Enter Your Username">
+                      </div>
+                      <div class="form-group">
+                        <label for="inputEmail">Email address</label>
+                        <input type="email" name='email' class="form-control" id="inputEmail" aria-describedby="emailHelp" placeholder="Enter Your email">
+                      </div>
+                      <div class="form-group">
+                        <label for="inputPassword">Password</label>
+                        <input type="password" class="form-control" name="password" id="inputPassword" placeholder="Enter Your Password">
+                      </div>
+                      <div class="form-group">
+                        <label for="confirmPassword">Confirm Password</label>
+                        <input type="password" class="form-control" name='confirmPassword' id="confirmPassword" placeholder="Password">
+                      </div>
+                      <!-- <div class="form-group">
+                        <label for="birthday">Birthday</label>
+                        <input type="text" id="datepicker">
+                      </div> -->
+                      <button type="submit" class="btn btn-primary" id="submit" value="click">Submit</button>
+                    </form>
+                </div>
+            </div>
+          </div>
+        </div>
+        <!-- jQuery -->
+        <script src="js/lib/jquery-3.3.1.min.js"></script>
+        <script src="js/lib/jquery.validate.min.js"></script>
+        <!-- <script src="js/lib/jquery-ui.min.js"></script> -->
+        <!-- Bootstrap Core JavaScript -->
+        <script src="js/lib/bootstrap.min.js"></script>
+        <!-- <script src="js/lib/loadingoverplay.min.js"></script> -->
+        <!-- <script src="app.js"></script> -->
+        <script src="js/register.js"></script>
+    </body>
+</html>
