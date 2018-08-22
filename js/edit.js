@@ -90,6 +90,7 @@ $(function(){
       },
     },
     submitHandler: function(form) {
+      $.LoadingOverlay("show");
       let user = {
         id: get_id(),
         user_name: $("#inputUser").val(),

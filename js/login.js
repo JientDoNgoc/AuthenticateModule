@@ -17,6 +17,7 @@ $(function(){
       }
     },
     submitHandler: function(form) {
+      $.LoadingOverlay("show");
       let user = {
         email: $("#inputEmail").val(),
         password: $("#inputPassword").val()
