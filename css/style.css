@@ -4,6 +4,11 @@
 }
 
 form{
-	background-color: rgba(41, 174, 137, 0.7);
+	background-color: rgba(41, 174, 137, 0.2);
 	padding: .5em;
+}
+
+#preview{
+	width: 100px;
+	height: 100px;
 }
