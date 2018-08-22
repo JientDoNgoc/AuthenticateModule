@@ -1,3 +1,6 @@
+function get_id(){
+  return '_' + Math.random().toString(36).substr(2, 9);
+}
 var getUrlParameter = function getUrlParameter(sParam) {
     var sPageURL = decodeURIComponent(window.location.search.substring(1)),
         sURLVariables = sPageURL.split('&'),
@@ -12,9 +15,9 @@ var getUrlParameter = function getUrlParameter(sParam) {
         }
     }
 };
-let data = JSON.parse(localStorage.getItem("users"));
+let users = JSON.parse(localStorage.getItem("users"));
 let currentUser;
-let imageconvert;
+let imageconvert = '';
 
 
 function getBase64(file) {
@@ -22,34 +25,37 @@ function getBase64(file) {
    reader.readAsDataURL(file);
    reader.onload = function () {
      imageconvert = reader.result;
+     $('#preview').attr('src', reader.result);
    };
    reader.onerror = function (error) {
      console.log('Error: ', error);
    };
-}
-function getimage(){
+};
+
+function getImage(){
   bannerImage = $('#avatar').get(0).files[0];
   image = getBase64(bannerImage);
-}
+};
 
 $("#inputAvt").change(function() {
-  getimage();
+  getImage();
 });
 
+
 $(function(){
-  if(data && data.length === 0) {
-    window.location.replace("register.html");
-  }
-
-  $("#datepicker").datepicker( {
-        changeMonth: true,
-        changeYear: true,
-        showButtonPanel: true,
-        maxDate: '0',
-        dateFormat: 'dd MMM YYYY'
-    }).on('change', function() {});
-
-  data.forEach(function(storedUser){
+  $( "#edit-form" ).submit(function( event ) {
+    event.preventDefault();
+  })
+  $(document).ready(function(){
+    $("#datepicker").datepicker( {
+          changeMonth: true,
+          changeYear: true,
+          showButtonPanel: true,
+          maxDate: '0',
+          dateFormat: 'dd MMM YYYY'
+      }).on('change', function() {});
+  });
+  users.forEach(function(storedUser){
     if (getUrlParameter("email") === storedUser.email) {
       currentUser = storedUser;
       $("#inputUser").val(currentUser.user_name);
@@ -97,9 +103,10 @@ $(function(){
         email: $("#inputEmail").val(),
         password: $("#inputPassword").val()
       }
+      //users.push(user);
       localStorage.setItem('users', JSON.stringify(users));
+      window.location.replace("index.html?email=" + user.email);
     }
-    window.location.replace("index.html?email=" + user.email);
   });
 });
 
